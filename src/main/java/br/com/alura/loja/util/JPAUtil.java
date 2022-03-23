@@ -4,11 +4,14 @@ import javax.persistence.*;
 
 public class JPAUtil {
 
-    private static final EntityManagerFactory FACTORY = Persistence
-            .createEntityManagerFactory("loja");
-
     public static EntityManager getEntityManager() {
-        return FACTORY.createEntityManager();
+        EntityManagerFactory factory = Persistence.createEntityManagerFactory("primary");
+        return factory.createEntityManager();
+    }
+
+    public static EntityManager getEntityManagerTest() {
+        EntityManagerFactory factory = Persistence.createEntityManagerFactory("secondary");
+        return factory.createEntityManager();
     }
 
 }
